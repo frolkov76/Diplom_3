@@ -1,4 +1,4 @@
-import PageObject.PageRegistration;
+import ru.pom.stella.burger.PageRegistration;
 import org.junit.BeforeClass;
 
 import java.util.Map;

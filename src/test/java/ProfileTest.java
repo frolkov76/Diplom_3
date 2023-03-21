@@ -1,6 +1,6 @@
-import PageObject.PageAuthorization;
-import PageObject.PageMainStellarBurgers;
-import PageObject.PagePersonalAccount;
+import ru.pom.stella.burger.PageAuthorization;
+import ru.pom.stella.burger.PageMainStellarBurgers;
+import ru.pom.stella.burger.PagePersonalAccount;
 import com.codeborne.selenide.Selenide;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.After;
@@ -15,10 +15,22 @@ public class ProfileTest extends Preregister {
     private static PageMainStellarBurgers pageMainStellarBurgers;
     private static PageAuthorization pageAuthorization;
 
+    public static void setPageAuthorization(PageAuthorization pageAuthorization) {
+        ProfileTest.pageAuthorization = pageAuthorization;
+    }
+
 
     @Before
     public void openSite() {
         pageMainStellarBurgers = open("https://stellarburgers.nomoreparties.site/", PageMainStellarBurgers.class);
+
+        pageMainStellarBurgers.clickButtonPersonalAccount();
+        PageAuthorization pageAuthorization = Selenide.page(PageAuthorization.class);
+        pageAuthorization.checkLoginPage();
+        pageAuthorization.setInputEmail(map.get("email"));
+        pageAuthorization.setInputPassword(map.get("password"));
+        pageAuthorization.clickButtonLogIn();
+        pageMainStellarBurgers.clickButtonPersonalAccount();
     }
 
     @After
@@ -29,13 +41,7 @@ public class ProfileTest extends Preregister {
     @Test
     @DisplayName("Проверка выхода из аккаунта")
     public void logoutUserTest() {
-        pageMainStellarBurgers.clickButtonPersonalAccount();
-        PageAuthorization pageAuthorization = Selenide.page(PageAuthorization.class);
-        pageAuthorization.checkLoginPage();
-        pageAuthorization.setInputEmail(map.get("email"));
-        pageAuthorization.setInputPassword(map.get("password"));
-        pageAuthorization.clickButtonLogIn();
-        pageMainStellarBurgers.clickButtonPersonalAccount();
+//
         PagePersonalAccount pagePersonalAccount = Selenide.page(PagePersonalAccount.class);
         pagePersonalAccount.clickExitButton();
         pageAuthorization.checkLoginPage();
@@ -45,13 +51,7 @@ public class ProfileTest extends Preregister {
     @Test
     @DisplayName("Проверка перехода по клику на личный кабинет")
     public void goToYourPersonalAccountTest() {
-        pageMainStellarBurgers.clickButtonPersonalAccount();
-        PageAuthorization pageAuthorization = Selenide.page(PageAuthorization.class);
-        pageAuthorization.checkLoginPage();
-        pageAuthorization.setInputEmail(map.get("email"));
-        pageAuthorization.setInputPassword(map.get("password"));
-        pageAuthorization.clickButtonLogIn();
-        pageMainStellarBurgers.clickButtonPersonalAccount();
+
         PagePersonalAccount pagePersonalAccount = Selenide.page(PagePersonalAccount.class);
         Assert.assertEquals("Имя пользователя в личном кабинете не соответствует ожидаемому", pagePersonalAccount.getInputAccountName(), map.get("name"));
     }
@@ -59,13 +59,7 @@ public class ProfileTest extends Preregister {
     @Test
     @DisplayName("Проверка перехода по клику на Конструктор")
     public void goToConstructorTest() {
-        pageMainStellarBurgers.clickButtonPersonalAccount();
-        pageAuthorization = Selenide.page(PageAuthorization.class);
-        pageAuthorization.checkLoginPage();
-        pageAuthorization.setInputEmail(map.get("email"));
-        pageAuthorization.setInputPassword(map.get("password"));
-        pageAuthorization.clickButtonLogIn();
-        pageMainStellarBurgers.clickButtonPersonalAccount();
+
         pageMainStellarBurgers.clickButtonConstructor();
         assertTrue("Переход по клику на конструктор не выполнен", pageMainStellarBurgers.checkTextAssembleTheBurger());
     }
@@ -73,13 +67,7 @@ public class ProfileTest extends Preregister {
     @Test
     @DisplayName("Проверка перехода по клику на логотип")
     public void goToLogoTest() {
-        pageMainStellarBurgers.clickButtonPersonalAccount();
-        pageAuthorization = Selenide.page(PageAuthorization.class);
-        pageAuthorization.checkLoginPage();
-        pageAuthorization.setInputEmail(map.get("email"));
-        pageAuthorization.setInputPassword(map.get("password"));
-        pageAuthorization.clickButtonLogIn();
-        pageMainStellarBurgers.clickButtonPersonalAccount();
+
         pageMainStellarBurgers.clickButtonLogoStellarBurgers();
         assertTrue("Переход по клику на логотип не выполнен", pageMainStellarBurgers.checkTextAssembleTheBurger());
     }

@@ -1,4 +1,4 @@
-package PageObject;
+package ru.pom.stella.burger;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.SelenideElement;

@@ -1,4 +1,4 @@
-import PageObject.PageMainStellarBurgers;
+import ru.pom.stella.burger.PageMainStellarBurgers;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.Assert;
 import org.junit.Before;
@@ -21,7 +21,7 @@ public class ConstructorTest {
         pageMainStellarBurgers.clickButtonRolls();
         String actual = pageMainStellarBurgers.getTextActiveButton();
         String expected = "Булки";
-        Assert.assertEquals("Не удалось перейти на вкладку Булки", actual, expected);
+        Assert.assertEquals("Не удалось перейти на вкладку Булки", expected, actual);
     }
 
     @Test
@@ -31,7 +31,7 @@ public class ConstructorTest {
         pageMainStellarBurgers.clickButtonSauces();
         String actual = pageMainStellarBurgers.getTextActiveButton();
         String expected = "Соусы";
-        Assert.assertEquals("Не удалось перейти на вкладку Соусы", actual, expected);
+        Assert.assertEquals("Не удалось перейти на вкладку Соусы", expected, actual);
     }
 
     @Test
@@ -41,7 +41,7 @@ public class ConstructorTest {
         pageMainStellarBurgers.clickButtonFillings();
         String actual = pageMainStellarBurgers.getTextActiveButton();
         String expected = "Начинки";
-        Assert.assertEquals("Не удалось перейти на вкладку Начинки", actual, expected);
+        Assert.assertEquals("Не удалось перейти на вкладку Начинки", expected, actual);
     }
 
 }

@@ -1,7 +1,8 @@
-package PageObject;
+package ru.pom.stella.burger;
 
 import com.codeborne.selenide.SelenideElement;
 import com.github.javafaker.Faker;
+import io.qameta.allure.Step;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
@@ -57,7 +58,7 @@ public class PageRegistration {
     public void clickButtonRegistration() {
         buttonRegistration.click();
     }
-
+    @Step("registrationUser")
     public Map<String, String> registrationUser() {
         Faker faker = new Faker();
         Map <String, String> map = new HashMap();
@@ -70,6 +71,7 @@ public class PageRegistration {
         clickButtonRegistration();
         return map;
     }
+    @Step("registrationUserIncorrectPassword")
     public void registrationUserIncorrectPassword() {
         Faker faker = new Faker();
         setInputName(faker.name().firstName());

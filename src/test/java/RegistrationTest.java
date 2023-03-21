@@ -1,7 +1,7 @@
-import PageObject.PageAuthorization;
-import PageObject.PageMainStellarBurgers;
-import PageObject.PagePersonalAccount;
-import PageObject.PageRegistration;
+import ru.pom.stella.burger.PageAuthorization;
+import ru.pom.stella.burger.PageMainStellarBurgers;
+import ru.pom.stella.burger.PagePersonalAccount;
+import ru.pom.stella.burger.PageRegistration;
 import com.codeborne.selenide.Selenide;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.*;

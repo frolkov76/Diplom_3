@@ -1,7 +1,8 @@
-package PageObject;
+package ru.pom.stella.burger;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
@@ -29,31 +30,32 @@ public class PageAuthorization {
     @FindBy(how = How.XPATH, using = "//h2[text()='Вход']")
     protected SelenideElement loginText;
 
+    @Step("checkLoginPage")
     public void checkLoginPage() {
         loginText.shouldHave(Condition.text("Вход"));
     }
-
+    @Step("displayedButtonLoginPage")
     public boolean displayedButtonLoginPage() {
         return buttonLogIn.isDisplayed();
     }
-
+    @Step("setInputEmail")
     public void setInputEmail(String email) {
 
         inputEmail.setValue(email);
     }
-
+    @Step("setInputPassword")
     public void setInputPassword(String password) {
         inputPassword.setValue(password);
     }
-
+    @Step("clickButtonRecoverPassword")
     public void clickButtonRecoverPassword() {
         buttonRecoverPassword.click();
     }
-
+    @Step("clickButtonLogIn")
     public void clickButtonLogIn() {
         buttonLogIn.click();
     }
-
+    @Step("clickButtonGoToTheRegistrationForm")
     public void clickButtonGoToTheRegistrationForm() {
         buttonGoToTheRegistrationForm.click();
     }

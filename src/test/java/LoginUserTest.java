@@ -1,7 +1,8 @@
-import PageObject.*;
+import ru.pom.stella.burger.*;
 import com.codeborne.selenide.Selenide;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.*;
+import ru.pom.stella.burger.*;
 
 
 import static com.codeborne.selenide.Selenide.open;

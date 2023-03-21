@@ -1,4 +1,4 @@
-package PageObject;
+package ru.pom.stella.burger;
 
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
