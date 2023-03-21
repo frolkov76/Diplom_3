@@ -15,12 +15,19 @@ Diplom_3
 Использованы библиотеки:
 
 selenium-java
+
 junit
+
 slf4j-nop
+
 allure-junit4
+
 rest-assured
+
 gson
+
 javafaker
+
 Использованы плагины
 
 maven-surefire-plugin
